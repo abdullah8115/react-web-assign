@@ -1,0 +1,19 @@
+.imgbox1-home {
+  z-index: 1;
+  position: relative;
+  width: 400px;
+  height: 756px;
+  top: 190px;
+  left: 1cm;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+}
+
+.img1-home {
+  z-index: 0;
+  width: 400px;
+  height: 650px;
+  /* position: absolute;
+  top: 350px;
+  left: 320px; */
+}

@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "Volkhov";
+  src: url("../Fonts/Volkhov-Regular.ttf") format("truetype");
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0%;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+.nav-link {
+  color: #ff0808;
+  text-decoration: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  border-radius: 4px;
+  background-color: #d0ff00;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #c72020;
+  transition: width 0.6s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.fasco {
+  left: 2cm;
+  font-family: Volkhov;
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 100px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #484848;
+}
