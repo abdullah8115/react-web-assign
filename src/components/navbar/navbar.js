@@ -16,6 +16,12 @@ function Navbar() {
         <NavLink to="/form2" className="nav-link" activeClassName="active">
           Sign Up
         </NavLink>
+        <NavLink to="/memo" className="nav-link" activeClassName="active">
+            Memo
+        </NavLink>
+        <NavLink to="/ProductPage" className="nav-link" activeClassName="active">
+            Products
+        </NavLink>
       </div>
     </div>
   );

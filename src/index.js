@@ -5,6 +5,8 @@ import Home from "./components/home/home";
 import Form1 from "./components/Forms/form1";
 import Form2 from "./components/Forms/form2";
 import NotFound from "./components/notFound/NotFound";
+import Memo from "./components/Memo/memo"
+import ProductPage from "./components/Products/products";
 
 let router = createBrowserRouter([
   {
@@ -23,11 +25,19 @@ let router = createBrowserRouter([
     path: "*",
     element: <NotFound />,
   },
+  {
+    path: "/memo",
+    element: <Memo />,
+  },
+  {
+    path: "/ProductPage",
+    element: <ProductPage />,
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  // </React.StrictMode>
 );
