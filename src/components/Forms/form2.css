@@ -1,0 +1,113 @@
+.login-container {
+  font-family: Poppins;
+  display: flex;
+  padding: 1cm 3cm;
+  margin-left: 19cm;
+  margin-top: -23cm;
+}
+
+.login-form {
+  flex: 1;
+  width: 25%;
+  margin-right: 20px;
+}
+
+.login-image {
+  width: 75%;
+  margin-top: 1cm;
+  height: 20cm;
+  border-radius: 2cm;
+}
+.submit-button {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+  background: #000000;
+  width: 207px;
+  height: 56px;
+  top: 733px;
+  left: 855px;
+  border-radius: 10px;
+  box-shadow: 0px 20px 35px 0px #00000026;
+  margin-top: 1cm;
+  /* margin-left: 25%; */
+}
+.login-buttons {
+  margin-top: 20px;
+  margin-bottom: 1cm;
+  display: flex;
+  flex-direction: row;
+}
+
+.google-button {
+  background-color: #e94235;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.fb-button {
+  background-color: #0866ff;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.google-button:hover {
+  background-color: #fabb05;
+}
+
+.fb-button:hover {
+  background-color: blue;
+}
+
+.or{
+    text-align: center;
+}
+
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border: 1px solid #4caf50;
+}
+
+.fasco-login {
+  margin-top: -2cm;
+  margin-bottom: 2cm;
+  font-family: Volkhov;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 100px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #484848;
+}

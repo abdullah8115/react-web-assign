@@ -11,10 +11,10 @@ function Navbar() {
           Home
         </NavLink>
         <NavLink to="/form1" className="nav-link" activeClassName="active">
-          Form 1
+          Log In
         </NavLink>
         <NavLink to="/form2" className="nav-link" activeClassName="active">
-          Form 2
+          Sign Up
         </NavLink>
       </div>
     </div>

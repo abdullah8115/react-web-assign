@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("../Fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+
 .home-body1 {
   display: flex;
 }
@@ -9,11 +14,11 @@
   width: 392px;
   height: 700px;
   margin-right: 20px;
-  margin-left: 15px;
+  margin-left: 1.5cm;
 }
 
 .img1-b1 {
-  width: 500px;
+  width: auto;
   height: 756px;
   margin-left: -60px;
 }
@@ -44,4 +49,73 @@
   width: 500px;
   height: 700px;
   margin-left: -60px;
+}
+
+.ultimate {
+  color: #484848;
+  font-family: Poppins;
+  font-size: 91px;
+  font-weight: 500;
+  line-height: 91px;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin-top: 0.5cm;
+}
+
+.sale {
+  font-family: Poppins;
+  font-size: 187px;
+  font-weight: 500;
+  color: white;
+  line-height: 187px;
+  letter-spacing: -0.055em;
+  text-align: center;
+  text-shadow: 0 0 3px black;
+  margin-top: -2.5cm;
+}
+
+.new-collection {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-top: -3.5cm;
+}
+
+.button-b1 {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+  background: #000000;
+  width: 207px;
+  height: 56px;
+  top: 733px;
+  left: 855px;
+  border-radius: 10px;
+  box-shadow: 0px 20px 35px 0px #00000026;
+  margin-top: -0.6cm;
+  margin-left: 25%;
+}
+
+.imgbox2-horiz {
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  width: 426px;
+  height: 150px;
+  margin-top: 0.6cm;
+  top: 826px;
+  left: 747px;
+  border-radius: 10px;
+}
+
+.img1-hz2 {
+  width: 430px;
+  height: 150px;
+  border-radius: 10px;
 }

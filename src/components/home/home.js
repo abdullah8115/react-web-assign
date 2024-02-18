@@ -3,6 +3,7 @@ import Navbar from "../navbar/navbar";
 import blackmansitting from "../Images/blackmansitting.png";
 import whitemansitting from "../Images/whitemansitting.png";
 import groupofgirls from "../Images/groupofgirls.png";
+import womentryingtodance from "../Images/womentryingtodance.jpg";
 import "./home.css";
 
 function Home() {
@@ -19,8 +20,19 @@ function Home() {
 
           <br />
 
-          <h2>ULTIMATE</h2>
-          <h1>SALE</h1>
+          <h2 className="ultimate">ULTIMATE</h2>
+          <h1 className="sale">SALE</h1>
+          <h5 className="new-collection"> NEW COLLECTION</h5>
+
+          <button className="button-b1"> SHOP NOW </button>
+
+          <div className="imgbox2-horiz">
+            <img
+              className="img1-hz2"
+              src={womentryingtodance}
+              alt="womentryingtodance"
+            />
+          </div>
         </div>
 
         <div className="imgbox2-home">
