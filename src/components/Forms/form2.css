@@ -3,7 +3,7 @@
   display: flex;
   padding: 1cm 3cm;
   margin-left: 19cm;
-  margin-top: -23cm;
+  margin-top: -22cm;
 }
 
 .login-form {
@@ -81,12 +81,14 @@
   background-color: blue;
 }
 
-.or{
-    text-align: center;
+.or {
+  text-align: center;
 }
 
+input[type="fullname"],
+input[type="email"],
 input[type="password"],
-input[type="email"] {
+input[type="confirmpass"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -95,8 +97,10 @@ input[type="email"] {
   border-radius: 4px;
 }
 
+input[type="fullname"]:focus,
+input[type="email"]:focus,
 input[type="password"]:focus,
-input[type="email"]:focus {
+input[type="confirmpass"]:focus {
   border: 1px solid #4caf50;
 }
 

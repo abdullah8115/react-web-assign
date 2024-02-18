@@ -33,6 +33,16 @@ function SignupForm() {
             <h2 className="or"> - OR -</h2>
 
             <label>
+              Full Name:
+              <br />
+              <input
+                type="fullname"
+                name="email"
+                placeholder="Type In Your Full Name"
+              />
+            </label>
+            <br />
+            <label>
               Email:
               <input
                 type="email"
@@ -41,11 +51,19 @@ function SignupForm() {
               />
             </label>
             <label>
-              Password
+              Password:
               <input
                 type="password"
                 name="password"
                 placeholder="Type In Your Valid Password"
+              />
+            </label>
+            <label>
+              Confirm Password:
+              <input
+                type="password"
+                name="confirmpass"
+                placeholder="Confirm Your Password"
               />
             </label>
             <br />
