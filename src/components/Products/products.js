@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import "../Products/products.css";
+import Navbar from "../navbar/navbar";
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
@@ -9,7 +11,9 @@ const ProductPage = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts"
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }
@@ -22,6 +26,7 @@ const ProductPage = () => {
 
   return (
     <div>
+      <Navbar />
       <h1>Products</h1>
       <div className="product-container">
         {products.map((product) => (

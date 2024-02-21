@@ -13,9 +13,9 @@ function SignupForm() {
     <>
       <Navbar />
 
-      <div className="login-image">
+      <div className="login-imgbox2">
         <img
-          className="login-image"
+          className="login-image2"
           src={signupformgirl}
           alt="signupformgirl"
         />

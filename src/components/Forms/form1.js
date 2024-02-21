@@ -13,8 +13,8 @@ function LoginForm() {
     <>
       <Navbar />
 
-      <div className="login-image">
-        <img className="login-image" src={loginformgirl} alt="loginformgirl" />
+      <div className="login-imgbox1">
+        <img className="login-image1 " src={loginformgirl} alt="loginformgirl" />
       </div>
       <div className="login-container">
         <div className="login-form">

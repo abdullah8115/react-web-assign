@@ -7,16 +7,24 @@
 }
 
 .login-form {
+  margin-top: 6cm;
   flex: 1;
   width: 25%;
   margin-right: 20px;
 }
 
-.login-image {
+.login-imgbox1{
   width: 75%;
   margin-top: 1cm;
-  height: 20cm;
+  height: 15cm;
   border-radius: 2cm;
+}
+
+.login-image1{
+  width: 70%;
+  height: 18cm;
+  border-radius: 2cm;
+  margin-left: 1cm;
 }
 .submit-button {
   font-family: Poppins;
