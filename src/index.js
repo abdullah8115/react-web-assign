@@ -7,6 +7,7 @@ import Form2 from "./components/Forms/form2";
 import NotFound from "./components/notFound/NotFound";
 import Memo from "./components/Memo/memo"
 import ProductPage from "./components/Products/products";
+import ProductDetailPage from "./components/Products/Product Detail/ProductDetailPage"; // Import the ProductDetailPage component
 
 let router = createBrowserRouter([
   {
@@ -22,17 +23,21 @@ let router = createBrowserRouter([
     element: <Form2 />,
   },
   {
-    path: "*",
-    element: <NotFound />,
-  },
-  {
     path: "/memo",
     element: <Memo />,
   },
   {
     path: "/ProductPage",
     element: <ProductPage />,
-  }
+  },
+  {
+    path: "/products/:productId",
+    element: <ProductDetailPage />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
