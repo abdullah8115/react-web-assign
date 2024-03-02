@@ -43,7 +43,7 @@
 // export default ProductPage;
 
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link } from "react-router-dom";
 import "../Products/products.css";
 import Navbar from "../navbar/navbar";
 
@@ -78,7 +78,8 @@ const ProductPage = () => {
           <div key={product.id} className="product-box">
             <h2>{product.title}</h2>
             <p>{product.body}</p>
-            <Link to={`/products/${products.id}`}>More Info</Link>
+            {/* Corrected Link */}
+            <Link to={`/products/${product.id}`}>More Info</Link>
           </div>
         ))}
       </div>

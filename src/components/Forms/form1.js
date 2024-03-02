@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../navbar/navbar";
 import loginformgirl from "../Images/loginformgirl.jpg";
 import "./form1.css";
 
 function LoginForm() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted");
+    // Retrieve user data from local storage
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    
+    // Check if user data exists and credentials match
+    if (userData && formData.email === userData.email && formData.password === userData.password) {
+      console.log("Login successful");
+      alert("Login successful");
+    } else {
+      console.log("Invalid credentials");
+      alert("Invalid credentials");
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
   };
 
   return (
@@ -33,6 +56,8 @@ function LoginForm() {
               <input
                 type="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Type In Your Email Here"
               />
             </label>
@@ -41,6 +66,8 @@ function LoginForm() {
               <input
                 type="password"
                 name="password"
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="Type In Your Valid Password"
               />
             </label>

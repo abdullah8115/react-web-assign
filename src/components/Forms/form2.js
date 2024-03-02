@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../navbar/navbar";
 import signupformgirl from "../Images/signupformgirl.jpg";
 import "./form2.css";
 
 function SignupForm() {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    // Check if passwords match
+    if (formData.password !== formData.confirmPassword) {
+      console.log("Passwords do not match");
+      return;
+    }
+
+    // Save data to local storage
+    localStorage.setItem("userData", JSON.stringify(formData));
     console.log("Account Created");
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
   };
 
   return (
@@ -36,8 +59,10 @@ function SignupForm() {
               Full Name:
               <br />
               <input
-                type="fullname"
-                name="email"
+                type="text"
+                name="fullname"
+                value={formData.fullName}
+                onChange={handleChange}
                 placeholder="Type In Your Full Name"
               />
             </label>
@@ -47,6 +72,8 @@ function SignupForm() {
               <input
                 type="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Type In Your Email Here"
               />
             </label>
@@ -55,6 +82,8 @@ function SignupForm() {
               <input
                 type="password"
                 name="password"
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="Type In Your Valid Password"
               />
             </label>
@@ -62,7 +91,9 @@ function SignupForm() {
               Confirm Password:
               <input
                 type="password"
-                name="confirmpass"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
                 placeholder="Confirm Your Password"
               />
             </label>
@@ -78,3 +109,4 @@ function SignupForm() {
 }
 
 export default SignupForm;
+
