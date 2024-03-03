@@ -27,7 +27,7 @@ let router = createBrowserRouter([
     element: <Memo />,
   },
   {
-    path: "/ProductPage",
+    path: "/products",
     element: <ProductPage />,
   },
   {

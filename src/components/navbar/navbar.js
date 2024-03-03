@@ -19,7 +19,7 @@ function Navbar() {
         <NavLink to="/memo" className="nav-link" activeClassName="active">
             Memo
         </NavLink>
-        <NavLink to="/ProductPage" className="nav-link" activeClassName="active">
+        <NavLink to="/products" className="nav-link" activeClassName="active">
             Products
         </NavLink>
       </div>

@@ -78,7 +78,6 @@ const ProductPage = () => {
           <div key={product.id} className="product-box">
             <h2>{product.title}</h2>
             <p>{product.body}</p>
-            {/* Corrected Link */}
             <Link to={`/products/${product.id}`}>More Info</Link>
           </div>
         ))}
