@@ -94,7 +94,7 @@
   text-align: center;
 }
 
-input[type="fullname"],
+input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="confirmpass"] {
@@ -106,7 +106,7 @@ input[type="confirmpass"] {
   border-radius: 4px;
 }
 
-input[type="fullname"]:focus,
+input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
 input[type="confirmpass"]:focus {

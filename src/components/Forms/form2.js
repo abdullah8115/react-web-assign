@@ -5,7 +5,7 @@ import "./form2.css";
 
 function SignupForm() {
   const [formData, setFormData] = useState({
-    fullName: "",
+    fullname: "",
     email: "",
     password: "",
     confirmPassword: ""
@@ -13,7 +13,6 @@ function SignupForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Check if passwords match
     if (formData.password !== formData.confirmPassword) {
       console.log("Passwords do not match");
       return;
@@ -61,7 +60,7 @@ function SignupForm() {
               <input
                 type="text"
                 name="fullname"
-                value={formData.fullName}
+                value={formData.fullname}
                 onChange={handleChange}
                 placeholder="Type In Your Full Name"
               />

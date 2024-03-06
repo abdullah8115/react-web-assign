@@ -14,7 +14,6 @@ function LoginForm() {
     // Retrieve user data from local storage
     const userData = JSON.parse(localStorage.getItem("userData"));
     
-    // Check if user data exists and credentials match
     if (userData && formData.email === userData.email && formData.password === userData.password) {
       console.log("Login successful");
       alert("Login successful");
