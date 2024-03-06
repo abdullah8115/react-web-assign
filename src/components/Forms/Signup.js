@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../navbar/navbar";
 import signupformgirl from "../Images/signupformgirl.jpg";
-import "./form2.css";
+import "./Signup.css";
 
 function SignupForm() {
   const [formData, setFormData] = useState({

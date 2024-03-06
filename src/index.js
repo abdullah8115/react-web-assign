@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/home/home";
-import Form1 from "./components/Forms/form1";
-import Form2 from "./components/Forms/form2";
+import Form1 from "./components/Forms/Login";
+import Form2 from "./components/Forms/Signup";
 import NotFound from "./components/notFound/NotFound";
 import Memo from "./components/Memo/memo"
 import ProductPage from "./components/Products/products";
@@ -42,7 +42,5 @@ let router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
     <RouterProvider router={router} />
-  // </React.StrictMode>
 );
