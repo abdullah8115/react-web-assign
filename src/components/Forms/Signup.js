@@ -23,6 +23,7 @@ function SignupForm() {
 
     localStorage.setItem("userData", JSON.stringify(formData));
     console.log("Account Created");
+    alert("Your Account Has Been Created...!");
     setTimeout(() => {
       navigate("/form1");
     }, 2000);
