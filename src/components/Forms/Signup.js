@@ -5,12 +5,12 @@ import signupformgirl from "../Images/signupformgirl.jpg";
 import "./Signup.css";
 
 function SignupForm() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState[{
     fullname: "",
     email: "",
     password: "",
-    confirmPassword: ""
-  });
+    confirmPassword: "",
+  }];
 
   const navigate = useNavigate();
 
@@ -33,7 +33,7 @@ function SignupForm() {
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 

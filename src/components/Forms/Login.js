@@ -15,16 +15,19 @@ function LoginForm() {
     event.preventDefault();
     const userData = JSON.parse(localStorage.getItem("userData"));
 
-    if (
-      userData &&
-      formData.email === userData.email &&
-      formData.password === userData.password
-    ) {
-      console.log("Login successful");
-      alert("Login successful");
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
+    if (userData) {
+      userData.map((val) => {
+        if (
+          val.email === formData.email &&
+          val.password === formData.password
+        ) {
+          console.log("Login successful");
+          alert("Login successful");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+        }
+      });
     } else {
       console.log("Invalid credentials");
       alert("Invalid credentials");
