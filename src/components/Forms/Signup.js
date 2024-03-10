@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/navbar";
 import signupformgirl from "../Images/signupformgirl.jpg";
 import "./Signup.css";
@@ -11,6 +12,8 @@ function SignupForm() {
     confirmPassword: ""
   });
 
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (formData.password !== formData.confirmPassword) {
@@ -18,9 +21,11 @@ function SignupForm() {
       return;
     }
 
-    // Save data to local storage
     localStorage.setItem("userData", JSON.stringify(formData));
     console.log("Account Created");
+    setTimeout(() => {
+      navigate("/form1");
+    }, 2000);
   };
 
   const handleChange = (event) => {
@@ -108,4 +113,3 @@ function SignupForm() {
 }
 
 export default SignupForm;
-

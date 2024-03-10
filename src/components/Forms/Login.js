@@ -2,21 +2,29 @@ import React, { useState } from "react";
 import Navbar from "../navbar/navbar";
 import loginformgirl from "../Images/loginformgirl.jpg";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
   const [formData, setFormData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Retrieve user data from local storage
     const userData = JSON.parse(localStorage.getItem("userData"));
-    
-    if (userData && formData.email === userData.email && formData.password === userData.password) {
+
+    if (
+      userData &&
+      formData.email === userData.email &&
+      formData.password === userData.password
+    ) {
       console.log("Login successful");
       alert("Login successful");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
     } else {
       console.log("Invalid credentials");
       alert("Invalid credentials");
@@ -27,7 +35,7 @@ function LoginForm() {
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -36,7 +44,11 @@ function LoginForm() {
       <Navbar />
 
       <div className="login-imgbox1">
-        <img className="login-image1 " src={loginformgirl} alt="loginformgirl" />
+        <img
+          className="login-image1 "
+          src={loginformgirl}
+          alt="loginformgirl"
+        />
       </div>
       <div className="login-container">
         <div className="login-form">
