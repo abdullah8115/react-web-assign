@@ -11,28 +11,28 @@ function LoginForm() {
   });
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const userData = JSON.parse(localStorage.getItem("userData"));
+const handleSubmit = (event) => {
+  event.preventDefault();
+  // Check if the form is submitted by clicking the submit button
+  if (event.target.type !== "submit") {
+    return;
+  }
 
-    if (userData) {
-      userData.map((val) => {
-        if (
-          val.email === formData.email &&
-          val.password === formData.password
-        ) {
-          console.log("Login successful");
-          alert("Login successful");
-          setTimeout(() => {
-            navigate("/");
-          }, 2000);
-        }
-      });
-    } else {
-      console.log("Invalid credentials");
-      alert("Invalid credentials");
-    }
-  };
+  const userData = JSON.parse(localStorage.getItem("userData"));
+
+  if (userData && userData.email === formData.email && userData.password === formData.password) {
+    console.log("Login successful");
+    alert("Login successful");
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
+  } else {
+    console.log("Invalid credentials");
+    alert("Invalid credentials");
+  }
+};
+
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;

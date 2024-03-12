@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import "./ProductDetailPage.css";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
@@ -20,20 +22,27 @@ const ProductDetailPage = () => {
         console.error("Error fetching product:", error);
       }
     };
-      
-    
 
     fetchProduct();
   }, [productId]);
+
+  const handleGoBack = () => {
+    navigate("/products"); // Navigate back to the products page
+  };
 
   if (!product) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div>
-      <h2>{product.title}</h2>
-      <p>{product.body}</p>
+    <div className="Product-Detail-Container">
+      <div className="Product-Detail-Info">
+        <h2>{product.title}</h2>
+        <p>{product.body}</p>
+      </div>
+      <button className="Go-Back-Button" onClick={handleGoBack}>
+        Go Back
+      </button>
     </div>
   );
 };

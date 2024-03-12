@@ -1,0 +1,21 @@
+.Product-Detail-Info {
+    font-family: Poppins;
+    max-width: 600px; /* Set maximum width for the product detail box */
+    margin: 0 auto; /* Center the box horizontally */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .Product-Detail-Info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .Product-Detail-Info p {
+    font-size: 18px;
+    line-height: 1.6; /* Set line height for better readability */
+    margin-bottom: 20px;
+  }
+  

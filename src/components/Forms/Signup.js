@@ -5,17 +5,21 @@ import signupformgirl from "../Images/signupformgirl.jpg";
 import "./Signup.css";
 
 function SignupForm() {
-  const [formData, setFormData] = useState[{
+  const [formData, setFormData] = useState({
     fullname: "",
     email: "",
     password: "",
     confirmPassword: "",
-  }];
+  });
 
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (event.target.type !== "submit") {
+      return;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       console.log("Passwords do not match");
       return;

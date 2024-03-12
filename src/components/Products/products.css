@@ -1,5 +1,34 @@
-.product-container{
-    font-family: Poppins;
-    /* display: flex;
-    flex-direction: row; */
+.product-container {
+  font-family: Poppins;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-box {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  width: calc(33.33% - 20px);
+  box-sizing: border-box;
+}
+
+.product-box h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.product-box p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.product-box a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.product-box a:hover {
+  text-decoration: underline;
 }
