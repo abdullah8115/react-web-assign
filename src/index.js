@@ -1,14 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/home/home";
 import Form1 from "./components/Forms/Login";
 import Form2 from "./components/Forms/Signup";
 import NotFound from "./components/notFound/NotFound";
-import Memo from "./components/Memo/memo"
+import Memo from "./components/Memo/memo";
 import ProductPage from "./components/Products/products";
-import ProductDetailPage from "./components/Products/Product Detail/ProductDetailPage"; // Import the ProductDetailPage component
+import ProductDetailPage from "./components/Products/Product Detail/ProductDetailPage";
+import Profile from "./User Data/UserInfo";
+import { UserProvider } from "./User Context/UserContext";
 
+// Define your routes
 let router = createBrowserRouter([
   {
     path: "/",
@@ -35,12 +38,18 @@ let router = createBrowserRouter([
     element: <ProductDetailPage />,
   },
   {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
     path: "*",
     element: <NotFound />,
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
+  <UserProvider>
     <RouterProvider router={router} />
+  </UserProvider>,
+  document.getElementById("root")
 );

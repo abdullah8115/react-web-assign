@@ -11,7 +11,7 @@ const ProductDetailPage = () => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(
-          `https://jsonplaceholder.typicode.com/posts/${productId}`
+          `https://jsonplaceholder.typicode.com/photos/${productId}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch product");
@@ -27,7 +27,7 @@ const ProductDetailPage = () => {
   }, [productId]);
 
   const handleGoBack = () => {
-    navigate("/products"); // Navigate back to the products page
+    navigate("/products");
   };
 
   if (!product) {
@@ -38,7 +38,10 @@ const ProductDetailPage = () => {
     <div className="Product-Detail-Container">
       <div className="Product-Detail-Info">
         <h2>{product.title}</h2>
-        <p>{product.body}</p>
+        <h2>Album ID: {product.albumId}</h2>
+        <p>
+          <img src={product.thumbnailUrl} alt="Products Image" />
+        </p>
       </div>
       <button className="Go-Back-Button" onClick={handleGoBack}>
         Go Back

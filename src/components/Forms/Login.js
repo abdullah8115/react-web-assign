@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Navbar from "../navbar/navbar";
 import loginformgirl from "../Images/loginformgirl.jpg";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../User Context/UserContext";
 
 function LoginForm() {
   const [formData, setFormData] = useState({
@@ -10,29 +11,24 @@ function LoginForm() {
     password: "",
   });
   const navigate = useNavigate();
+  const { userData } = useContext(UserContext);
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  // Check if the form is submitted by clicking the submit button
-  if (event.target.type !== "submit") {
-    return;
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  const userData = JSON.parse(localStorage.getItem("userData"));
+    const user = userData.find((user) => user.email === formData.email && user.password === formData.password);
 
-  if (userData && userData.email === formData.email && userData.password === formData.password) {
-    console.log("Login successful");
-    alert("Login successful");
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
-  } else {
-    console.log("Invalid credentials");
-    alert("Invalid credentials");
-  }
-};
-
-
+    if (user) {
+      console.log("Login successful");
+      alert("Login successful");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } else {
+      console.log("Invalid credentials");
+      alert("Invalid credentials");
+    }
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -45,13 +41,8 @@ const handleSubmit = (event) => {
   return (
     <>
       <Navbar />
-
       <div className="login-imgbox1">
-        <img
-          className="login-image1 "
-          src={loginformgirl}
-          alt="loginformgirl"
-        />
+        <img className="login-image1 " src={loginformgirl} alt="loginformgirl" />
       </div>
       <div className="login-container">
         <div className="login-form">
@@ -62,9 +53,7 @@ const handleSubmit = (event) => {
               <button className="google-button">Log In with Google</button>
               <button className="fb-button">Log In with Facebook</button>
             </div>
-
             <h2 className="or"> - OR -</h2>
-
             <label>
               Email:
               <input

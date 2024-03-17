@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../User Context/UserContext";
 import Navbar from "../navbar/navbar";
 import signupformgirl from "../Images/signupformgirl.jpg";
 import "./Signup.css";
 
 function SignupForm() {
+  const { saveuserData } = useContext(UserContext);
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -12,13 +16,8 @@ function SignupForm() {
     confirmPassword: "",
   });
 
-  const navigate = useNavigate();
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (event.target.type !== "submit") {
-      return;
-    }
 
     if (formData.password !== formData.confirmPassword) {
       console.log("Passwords do not match");
@@ -31,6 +30,7 @@ function SignupForm() {
     setTimeout(() => {
       navigate("/form1");
     }, 2000);
+    saveuserData(formData);
   };
 
   const handleChange = (event) => {

@@ -13,7 +13,7 @@ const ProductPage = () => {
   const fetchProducts = async () => {
     try {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
+        "https://jsonplaceholder.typicode.com/photos"
       );
       if (!response.ok) {
         throw new Error("Failed to fetch products");
@@ -32,8 +32,12 @@ const ProductPage = () => {
       <div className="product-container">
         {products.map((product) => (
           <div key={product.id} className="product-box">
+            <h2>{product.id}</h2>
             <h2>{product.title}</h2>
-            <p>{product.body}</p>
+            <p>
+              <img src={product.thumbnailUrl} alt="Products Image" />
+            </p>
+            <br />
             <Link to={`/products/${product.id}`}>More Info</Link>
           </div>
         ))}
