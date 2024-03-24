@@ -19,7 +19,7 @@ function LoginForm() {
     console.log("Form Data:", formData);
     console.log("User Data:", userData);
   
-    const user = userData[formData.email]; // Access user directly by email
+    const user = userData && userData[formData.email];
     console.log("User found:", user);
   
     if (user && user.password === formData.password) {
@@ -34,6 +34,7 @@ function LoginForm() {
     }
   };
   
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -47,7 +48,11 @@ function LoginForm() {
     <>
       <Navbar />
       <div className="login-imgbox1">
-        <img className="login-image1 " src={loginformgirl} alt="loginformgirl" />
+        <img
+          className="login-image1 "
+          src={loginformgirl}
+          alt="loginformgirl"
+        />
       </div>
       <div className="login-container">
         <div className="login-form">
@@ -55,9 +60,14 @@ function LoginForm() {
           <h2>Log In To Fasco</h2>
           <form onSubmit={handleSubmit}>
             <div className="login-buttons">
-              <button className="google-button">Log In with Google</button>
-              <button className="fb-button">Log In with Facebook</button>
+              <button type="button" className="google-button">
+                Log In with Google
+              </button>
+              <button type="button" className="fb-button">
+                Log In with Facebook
+              </button>
             </div>
+
             <h2 className="or"> - OR -</h2>
             <label>
               Email:

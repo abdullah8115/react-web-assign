@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../User Context/UserContext";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/navbar";
 import signupformgirl from "../Images/signupformgirl.jpg";
 import "./Signup.css";
 
 const SignupForm = () => {
-  const { saveuserData } = useContext(UserContext);
+  const { userData, saveUserData } = useContext(UserContext);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -18,24 +18,29 @@ const SignupForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+  
     if (formData.password !== formData.confirmPassword) {
       console.log("Passwords do not match");
+      alert("Passwords do not match.");
       return;
     }
-
-    localStorage.setItem("userData", JSON.stringify(formData));
-    console.log("Account Created");
+  
+    if (userData && userData[formData.email]) {
+      alert("Email already in use. Please use a different email.");
+      return;
+    }
+  
+    saveUserData({ [formData.email]: { ...formData, confirmPassword: undefined } });
     alert("Your Account Has Been Created...!");
     setTimeout(() => {
       navigate("/form1");
     }, 2000);
-    saveuserData(formData);
   };
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevData) => ({
+    setFormData(prevData => ({
       ...prevData,
       [name]: value,
     }));
@@ -58,8 +63,12 @@ const SignupForm = () => {
           <h2>Create a New Account</h2>
           <form onSubmit={handleSubmit}>
             <div className="login-buttons">
-              <button className="google-button">Signup with Google</button>
-              <button className="fb-button">Signup with Facebook</button>
+              <button type="button" className="google-button">
+                Signup with Google
+              </button>
+              <button type="button" className="fb-button">
+                Signup with Facebook
+              </button>
             </div>
 
             <h2 className="or"> - OR -</h2>

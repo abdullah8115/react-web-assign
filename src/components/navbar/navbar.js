@@ -5,6 +5,7 @@ import "./navbar.css";
 
 function Navbar() {
   const { userData } = useContext(UserContext);
+  
   return (
     <div className="navbar">
       <span className="fasco">FASCO</span>

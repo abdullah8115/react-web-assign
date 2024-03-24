@@ -40,7 +40,7 @@ const ProductDetailPage = () => {
         <h2>{product.title}</h2>
         <h2>Album ID: {product.albumId}</h2>
         <p>
-          <img src={product.thumbnailUrl} alt="Products Image" />
+          <img src={product.thumbnailUrl} alt="ProductsImage" />
         </p>
       </div>
       <button className="Go-Back-Button" onClick={handleGoBack}>

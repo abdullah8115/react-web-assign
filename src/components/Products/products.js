@@ -35,7 +35,7 @@ const ProductPage = () => {
             <h2>{product.id}</h2>
             <h2>{product.title}</h2>
             <p>
-              <img src={product.thumbnailUrl} alt="Products Image" />
+              <img src={product.thumbnailUrl} alt="ProductsImage" />
             </p>
             <br />
             <Link to={`/products/${product.id}`}>More Info</Link>
