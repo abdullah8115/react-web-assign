@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect } from "react";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [userData, setuserData] = useState(() => {
+  const [userData, setUserData] = useState(() => {
     const savedData = localStorage.getItem("userData");
     return savedData ? JSON.parse(savedData) : [];
   });
@@ -12,13 +12,12 @@ export const UserProvider = ({ children }) => {
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
 
-  const saveuserData = (data) => {
-    setuserData([...userData, data]);
+  const saveUserData = (data) => {
+    setUserData(data);
   };
-  
 
   return (
-    <UserContext.Provider value={{ userData, saveuserData }}>
+    <UserContext.Provider value={{ userData, saveUserData }}>
       {children}
     </UserContext.Provider>
   );

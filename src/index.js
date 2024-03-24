@@ -51,5 +51,5 @@ ReactDOM.render(
   <UserProvider>
     <RouterProvider router={router} />
   </UserProvider>,
-  document.getElementById("root")
+    document.getElementById("root")
 );

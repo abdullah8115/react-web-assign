@@ -15,10 +15,14 @@ function LoginForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const user = userData.find((user) => user.email === formData.email && user.password === formData.password);
-
-    if (user) {
+  
+    console.log("Form Data:", formData);
+    console.log("User Data:", userData);
+  
+    const user = userData[formData.email]; // Access user directly by email
+    console.log("User found:", user);
+  
+    if (user && user.password === formData.password) {
       console.log("Login successful");
       alert("Login successful");
       setTimeout(() => {
@@ -29,6 +33,7 @@ function LoginForm() {
       alert("Invalid credentials");
     }
   };
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target;

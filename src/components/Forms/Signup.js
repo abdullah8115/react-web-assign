@@ -5,7 +5,7 @@ import Navbar from "../navbar/navbar";
 import signupformgirl from "../Images/signupformgirl.jpg";
 import "./Signup.css";
 
-function SignupForm() {
+const SignupForm = () => {
   const { saveuserData } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -115,6 +115,6 @@ function SignupForm() {
       </div>
     </>
   );
-}
+};
 
 export default SignupForm;

@@ -19,7 +19,6 @@ function Navbar() {
         <NavLink to="/products" className="nav-link" activeClassName="active">
           Products
         </NavLink>
-        {!userData && (
           <>
             <NavLink to="/form1" className="nav-link" activeClassName="active">
               Log In
@@ -28,8 +27,7 @@ function Navbar() {
               Sign Up
             </NavLink>
           </>
-        )}
-        {userData && (
+        {userData && userData.isLoggedIn && (
           <NavLink to="/profile" className="nav-link" activeClassName="active">
             Profile
           </NavLink>
