@@ -11,30 +11,32 @@ function LoginForm() {
     password: "",
   });
   const navigate = useNavigate();
-  const { userData } = useContext(UserContext);
+  const { userData, saveUserData } = useContext(UserContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
-    console.log("Form Data:", formData);
-    console.log("User Data:", userData);
-  
-    const user = userData && userData[formData.email];
-    console.log("User found:", user);
-  
-    if (user && user.password === formData.password) {
-      console.log("Login successful");
-      alert("Login successful");
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-    } else {
-      console.log("Invalid credentials");
-      alert("Invalid credentials");
+
+    if (!formData.email || !formData.password) {
+      alert("Please fill in both email and password fields.");
+      return;
     }
+
+    const existingUser = userData.find((user) => user.email === formData.email);
+    if (!existingUser) {
+      alert("User not found. Please sign up first.");
+      return;
+    }
+
+    if (existingUser.password !== formData.password) {
+      alert("Invalid password.");
+      return;
+    }
+
+    alert("Login successful.");
+    setTimeout(() => {
+      navigate("/"); // Navigate to home page after successful login
+    }, 2000);
   };
-  
-  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -48,27 +50,21 @@ function LoginForm() {
     <>
       <Navbar />
       <div className="login-imgbox1">
-        <img
-          className="login-image1 "
-          src={loginformgirl}
-          alt="loginformgirl"
-        />
+        <img className="login-image1" src={loginformgirl} alt="loginformgirl" />
       </div>
       <div className="login-container">
         <div className="login-form">
           <span className="fasco-login">FASCO</span>
+          <div className="login-buttons">
+            <button type="button" className="google-button">
+              Log In with Google
+            </button>
+            <button type="button" className="fb-button">
+              Log In with Facebook
+            </button>
+          </div>
           <h2>Log In To Fasco</h2>
           <form onSubmit={handleSubmit}>
-            <div className="login-buttons">
-              <button type="button" className="google-button">
-                Log In with Google
-              </button>
-              <button type="button" className="fb-button">
-                Log In with Facebook
-              </button>
-            </div>
-
-            <h2 className="or"> - OR -</h2>
             <label>
               Email:
               <input
@@ -77,19 +73,20 @@ function LoginForm() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Type In Your Email Here"
+                required
               />
             </label>
             <label>
-              Password
+              Password:
               <input
                 type="password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                placeholder="Type In Your Valid Password"
+                placeholder="Type In Your Password Here"
+                required
               />
             </label>
-            <br />
             <button type="submit" className="submit-button">
               Submit
             </button>

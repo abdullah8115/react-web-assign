@@ -1,24 +1,27 @@
 // UserContext.js
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState} from 'react';
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [userData, setUserData] = useState(() => {
+  const [userData] = useState(() => {
     const storedData = localStorage.getItem('userData');
     return storedData ? JSON.parse(storedData) : {};
   });
   console.log(userData, "User Data Saved");
 
-  useEffect(() => {
-    localStorage.setItem('userData', JSON.stringify(userData));
-  }, [userData]);
+  const saveUserData = (newUseerdata) => {
+    let data = localStorage.getItem('userData');  
+    console.log("this is local storage data ", data )
+    data = JSON.parse(data)
+    if(data){
 
-  const saveUserData = (data) => {
-    setUserData(prevUserData => ({
-      ...prevUserData,
-      ...data
-    }));
+      localStorage.setItem('userData', JSON.stringify([newUseerdata , ...data
+      ]));
+    }else{
+      
+      localStorage.setItem('userData', JSON.stringify([newUseerdata]));
+    }
   };
 
   return (

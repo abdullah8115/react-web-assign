@@ -1,12 +1,13 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../User Context/UserContext";
-import { useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import Navbar from "../navbar/navbar";
 import signupformgirl from "../Images/signupformgirl.jpg";
 import "./Signup.css";
 
 const SignupForm = () => {
   const { userData, saveUserData } = useContext(UserContext);
+  console.log(userData, saveUserData)
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -19,23 +20,36 @@ const SignupForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
   
+  let data =  localStorage.getItem('userData')
+  data = JSON.parse(data)
+  console.log("this is local storage data ", data )
     if (formData.password !== formData.confirmPassword) {
       console.log("Passwords do not match");
       alert("Passwords do not match.");
       return;
-    }
+    } 
   
-    if (userData && userData[formData.email]) {
-      alert("Email already in use. Please use a different email.");
-      return;
+    let isFind = false
+
+    if(data){
+      data.map(function(value, index){
+        if (value.email === formData.email) {
+          alert("Email already in use. Please use a different email.");
+          isFind = true
+          return;
+        }       
+      })
     }
-  
-    saveUserData({ [formData.email]: { ...formData, confirmPassword: undefined } });
-    alert("Your Account Has Been Created...!");
-    setTimeout(() => {
-      navigate("/form1");
-    }, 2000);
-  };
+
+if(!isFind){
+
+  saveUserData(formData);
+  alert("Your Account Has Been Created...!");
+  setTimeout(() => {
+    navigate("/form1");
+  }, 2000);
+}   
+};
   
 
   const handleChange = (event) => {
@@ -82,6 +96,7 @@ const SignupForm = () => {
                 value={formData.fullname}
                 onChange={handleChange}
                 placeholder="Type In Your Full Name"
+                required
               />
             </label>
             <br />
@@ -93,6 +108,7 @@ const SignupForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Type In Your Email Here"
+                required
               />
             </label>
             <label>
@@ -103,6 +119,7 @@ const SignupForm = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Type In Your Valid Password"
+                required
               />
             </label>
             <label>
@@ -113,6 +130,7 @@ const SignupForm = () => {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="Confirm Your Password"
+                required
               />
             </label>
             <br />
