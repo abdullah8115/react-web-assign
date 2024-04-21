@@ -32,10 +32,12 @@ const SignupForm = () => {
     let isFind = false
 
     if(data){
+      // eslint-disable-next-line array-callback-return
       data.map(function(value, index){
         if (value.email === formData.email) {
           alert("Email already in use. Please use a different email.");
           isFind = true
+          // eslint-disable-next-line array-callback-return
           return;
         }       
       })

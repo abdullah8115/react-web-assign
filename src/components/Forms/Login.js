@@ -11,7 +11,7 @@ function LoginForm() {
     password: "",
   });
   const navigate = useNavigate();
-  const { userData, saveUserData } = useContext(UserContext);
+  const { userData } = useContext(UserContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
