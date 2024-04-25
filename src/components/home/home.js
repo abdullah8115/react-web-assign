@@ -35,6 +35,8 @@ function Home() {
           </div>
         </div>
 
+        Hello
+        
         <div className="imgbox2-home">
           <img className="img1-b2" src={whitemansitting} alt="whiteman-home" />
         </div>
